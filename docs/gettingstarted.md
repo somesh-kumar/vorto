@@ -5,7 +5,7 @@ This section provides you many tutorials to get you started with Vorto.
 ## General
 
 - [Describe a TI SensorTag with Vorto](tutorials/describe_tisensor.md)
-	
+- [Describing a device with Vorto using the Eclipse IDE](tutorials/use_eclipsetool_describe-import.md)	
 	
 ## Connectivity
 
