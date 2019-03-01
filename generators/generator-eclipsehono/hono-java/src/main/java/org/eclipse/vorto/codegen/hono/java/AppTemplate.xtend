@@ -54,28 +54,24 @@ class AppTemplate implements IFileTemplate<InformationModel> {
 		/* Adjust according to your Endpoint Configuration*/
 		/**************************************************************************/
 	
-		// Hono MQTT Endpoint
-		private static final String MQTT_ENDPOINT = "«context.configurationProperties.getOrDefault("hono_endpoint","<INSERT HONO MQTT ENDPOINT HERE>")»";
+		private static final String MQTT_ENDPOINT = "«context.configurationProperties.getOrDefault("hono_endpoint","<INSERT MQTT ENDPOINT HERE>")»";
 	
-		// Your Tenant
-		private static final String HONO_TENANT = "«context.configurationProperties.getOrDefault("hono_tenant","DEFAULT_TENANT")»";
+		private static final String TENANT = "«context.configurationProperties.getOrDefault("hono_tenant","DEFAULT_TENANT")»";
 	
-		// Your DeviceId
 		private static final String DEVICE_ID = "«context.configurationProperties.getOrDefault("deviceId","<INSERT DEVICE ID HERE>")»";
 		
-		// Device authentication ID
+		// Device authentication credentials
 		private static final String AUTH_ID = "«context.configurationProperties.getOrDefault("hono_user","<INSERT DEVICE AUTH ID HERE>")»";
+		private static final String PASSWORD = "ENTER_DEVICE_PASSWORD";
 		
 		// Ditto topic , e.g. com.mycompany/4711
 		private static final String DITTO_TOPIC = "«context.configurationProperties.getOrDefault("ditto_topic","com.mycompany/1234")»";
-	
-		// Device authentication Password
-		private static final String PASSWORD = "ENTER_DEVICE_PASSWORD";
+		
 		
 		private static final long SEND_INTERVAL_IN_SECONDS = 2;
 	
 		public static void main(final String... args) {
-			HonoDataService honoDataService = new HonoDataService(MQTT_ENDPOINT, HONO_TENANT, DITTO_TOPIC, 
+			HonoDataService honoDataService = new HonoDataService(MQTT_ENDPOINT, TENANT, DITTO_TOPIC, 
 					DEVICE_ID, AUTH_ID,PASSWORD);
 			
 			while (true) {
